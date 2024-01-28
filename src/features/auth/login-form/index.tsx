@@ -1,34 +1,22 @@
 import { TextField } from "@/components/inputs";
+import { useLogin } from "@/features/auth";
 import { AuthLayoutProvider } from "@/layouts";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { signIn } from "next-auth/react";
-import { useRouter } from "next/router";
 import { FC } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import { toast } from "react-toastify";
 import { schema } from "./validation";
 
 export const LoginForm: FC = () => {
-  const { push } = useRouter();
+  const { login } = useLogin();
   const formMethod = useForm({
     resolver: zodResolver(schema),
   });
   const { handleSubmit, register } = formMethod;
   const onSubmit = handleSubmit(async (data) => {
-    await signIn("credentials", {
-      redirect: false,
+    await login({
       email: data.email,
       password: data.password,
-    }).then((res) => {
-      if (res?.ok) {
-        toast.success("Login success");
-        setTimeout(() => {
-          push("/");
-        }, 2000);
-      }
-      if (res?.error) {
-        toast.error("Login failed");
-      }
+      remember: false,
     });
   });
   return (

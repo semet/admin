@@ -1,4 +1,4 @@
-import { LoginForm } from "@/features";
+import { LoginForm } from "@/features/auth";
 import { AuthLayout } from "@/layouts";
 import { NextPageWithLayout } from "@/types";
 
