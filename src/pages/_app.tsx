@@ -1,5 +1,7 @@
 import "@/styles/globals.css";
 import { AppPropsWithLayout } from "@/types";
+import { client } from "@/utils";
+import { QueryClientProvider } from "@tanstack/react-query";
 import { SessionProvider } from "next-auth/react";
 import { Rubik } from "next/font/google";
 import { ToastContainer } from "react-toastify";
@@ -16,10 +18,12 @@ export default function App({
   const getLayout = Component.getLayout || ((page) => page);
   return (
     <main className={`relative ${font.className}`}>
-      <SessionProvider session={session}>
-        <ToastContainer />
-        {getLayout(<Component {...pageProps} />)}
-      </SessionProvider>
+      <QueryClientProvider client={client}>
+        <SessionProvider session={session}>
+          <ToastContainer />
+          {getLayout(<Component {...pageProps} />)}
+        </SessionProvider>
+      </QueryClientProvider>
     </main>
   );
 }

@@ -3,7 +3,7 @@ import { ToggleSidebar } from "..";
 
 export const AppHeader: FC = () => {
   return (
-    <header className="flex h-[70px] items-center bg-gray-50 px-4 shadow-md">
+    <header className="sticky top-0 flex h-[60px] items-center bg-gray-50 px-4 shadow-sm">
       <ToggleSidebar />
     </header>
   );

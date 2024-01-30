@@ -15,7 +15,7 @@ export const ToggleSidebar: FC = () => {
   }, [isSidebarOpen]);
   return (
     <button
-      className="text-3xl text-gray-400 hover:text-gray-700"
+      className="text-2xl text-gray-400 hover:text-gray-700"
       onClick={() => setIsSidebarOpen((prev) => !prev)}
     >
       {icons}

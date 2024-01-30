@@ -6,10 +6,10 @@ export const AppLogo: FC = () => {
 
   return (
     <div
-      className={`flex h-[70px] items-center bg-gray-900 ${isShowMenuLabel ? "justify-start" : "justify-center"}`}
+      className={`flex h-[60px] items-center bg-gray-900 ${isShowMenuLabel ? "justify-start" : "justify-center"} sticky top-0`}
     >
       <span
-        className={`text-2xl font-semibold tracking-wider text-white ${isShowMenuLabel ? "pl-4 " : "pl-0"}`}
+        className={`text-xl font-semibold tracking-wider text-white ${isShowMenuLabel ? "pl-4 " : "pl-0"}`}
       >
         {logo}
       </span>

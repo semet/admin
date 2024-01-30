@@ -8,7 +8,7 @@ async function main() {
         name: "Hamdani",
         username: "hamdani",
         email: "hamdanilombok@gmail.com",
-        password: hashSync("12345678", Number(process.env.SALT_ROUND)),
+        password: hashSync("danis3m3t", Number(process.env.SALT_ROUND)),
         avatar:
           "https://res.cloudinary.com/hamdaniportfolio/image/upload/v1706356796/profile/me_jv9411.jpg ",
       },

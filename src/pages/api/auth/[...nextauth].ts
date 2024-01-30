@@ -1,9 +1,9 @@
 import prisma from "@/utils/db";
 import { compareSync } from "bcrypt";
-import NextAuth from "next-auth";
+import NextAuth, { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-export default NextAuth({
+export const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({
       name: "credentials",
@@ -44,6 +44,8 @@ export default NextAuth({
         token.id = user.id;
         token.email = user.email;
         token.name = user.name;
+        token.role = user.role;
+        token.picture = user.avatar;
       }
 
       return Promise.resolve(token);
@@ -51,12 +53,16 @@ export default NextAuth({
 
     session: async ({ session, token, user }) => {
       if (session && session.user) {
+        session.user.id = token.id;
         session.user.name = token.name;
         session.user.email = token.email;
         session.user.image = token.picture;
+        session.user.role = token.role;
       }
 
       return Promise.resolve(session);
     },
   },
-});
+};
+
+export default NextAuth(authOptions);

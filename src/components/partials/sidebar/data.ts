@@ -11,8 +11,8 @@ export const sidebarItems: TSidebarItem[] = [
   },
   {
     id: generateId(),
-    link: "/categories",
-    title: "Categories",
+    link: "/category",
+    title: "Category",
     icon: FaList,
   },
 ];

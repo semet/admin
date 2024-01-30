@@ -1,4 +1,4 @@
-import { AppHeader, LeftSide } from "@/components";
+import { AppHeader, Footer, LeftSide } from "@/components";
 import { TMainLayout } from "@/layouts";
 import { MainLayoutProvider } from "@/layouts/context";
 import { FC } from "react";
@@ -6,13 +6,14 @@ import { FC } from "react";
 export const MainLayout: FC<TMainLayout> = ({ children }) => {
   return (
     <MainLayoutProvider>
-      <div className="fixed bottom-0 top-0 flex w-full gap-0 ">
+      <div className="flex min-h-screen w-full gap-0">
         <LeftSide />
-
-        <div className="flex-grow bg-gray-100">
+        <div className="relative w-full bg-gray-100">
           {/* App Header */}
           <AppHeader />
-          {children}
+          <section className="mb-6 px-4 py-6">{children}</section>
+          {/* Footer */}
+          <Footer />
         </div>
       </div>
     </MainLayoutProvider>
