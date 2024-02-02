@@ -28,5 +28,5 @@ export const ToggleStatus: FC<TProps> = (props) => {
   const onToggle = () => {
     mutate();
   };
-  return <ToggleSwitch onChange={onToggle} checked={published} />;
+  return <ToggleSwitch onChange={() => onToggle()} enabled={published} />;
 };
