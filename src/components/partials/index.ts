@@ -4,3 +4,4 @@ export * from "./footer";
 export * from "./left-side";
 export * from "./sidebar";
 export * from "./toggle-sidebar";
+export * from "./user-menu";
