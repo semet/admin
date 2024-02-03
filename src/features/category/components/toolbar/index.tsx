@@ -5,11 +5,10 @@ import { FaPlus } from "react-icons/fa6";
 
 export const Toolbar: FC = () => {
   const { toggleDrawerCreate } = useCategoryContext();
-  const btnRef = useRef<HTMLButtonElement | null>(null);
 
   return (
     <ToolbarContainer position="right">
-      <Button variant="success" onClick={toggleDrawerCreate} ref={btnRef}>
+      <Button variant="success" onClick={toggleDrawerCreate}>
         <FaPlus />
         Create
       </Button>
