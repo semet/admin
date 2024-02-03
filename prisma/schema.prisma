@@ -12,6 +12,11 @@ enum Role {
   ADMIN
 }
 
+enum Status {
+  PUBLISHED
+  DRAFT
+}
+
 model Admin {
   id        String   @id @default(uuid())
   name      String
@@ -44,6 +49,7 @@ model Post {
   createdAt  DateTime    @default(now())
   updatedAt  DateTime    @updatedAt
   categoryId String
+  status     Status      @default(DRAFT)
   category   Category    @relation(fields: [categoryId], references: [id])
   images     PostImage[]
 }
